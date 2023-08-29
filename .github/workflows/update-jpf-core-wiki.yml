@@ -8,10 +8,10 @@ jobs:
         env:
           WIKI_SECRET: ${{ secrets.UPDATEWIKISECRETS }}
         run: |
+          git clone https://$WIKI_SECRET@github.com/quadhier/from.git
+          cd from
           git config user.name "quadhier"
           git config user.email "quadhier@163.com"
-          git remote remove origin
-          git remote add origin https://$WIKI_SECRET@github.com/quadhier/from.git
           git remote add upstream https://$WIKI_SECRET@github.com/quadhier/to.wiki.git
           git fetch origin
           git fetch upstream
