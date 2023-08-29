@@ -4,15 +4,15 @@ jobs:
   Push-Update:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone and push
+      - shell: bash
         env:
           WIKI_SECRET: ${{ secrets.UPDATEWIKISECRETS }}
         run: |
-          git clone https://$WIKI_SECRET@github.com/quadhier/from.git
+          git clone https://$WIKI_SECRET@github.com/quadhier/from
           cd from
           git config user.name "quadhier"
           git config user.email "quadhier@163.com"
-          git remote add upstream https://$WIKI_SECRET@github.com/quadhier/to.wiki.git
+          git remote add upstream https://$WIKI_SECRET@github.com/quadhier/to
           git fetch origin
           git fetch upstream
           git merge upstream/master --no-edit
