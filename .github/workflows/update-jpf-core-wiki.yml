@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Clone and push
         env:
-          WIKI_SECRET: ${{UPDATEWIKISECRETS}}
+          WIKI_SECRET: ${{ secrets.UPDATEWIKISECRETS }}
         run: |
           git config user.name "quadhier"
           git config user.email "quadhier@163.com"
