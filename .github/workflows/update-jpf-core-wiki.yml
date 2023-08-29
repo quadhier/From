@@ -15,6 +15,6 @@ jobs:
           git remote add upstream https://$WIKI_SECRET@github.com/quadhier/to
           git fetch origin
           git fetch upstream
-          git merge upstream/master --no-edit
-          git push origin HEAD:master
-          git push upstream HEAD:master
+          git merge upstream/main --no-edit
+          git push origin HEAD:main
+          git push upstream HEAD:main
