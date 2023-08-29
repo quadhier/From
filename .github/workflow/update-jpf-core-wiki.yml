@@ -1,0 +1,20 @@
+name: Update jpf-core Wiki
+on: [push]
+jobs:
+  Push-Update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone and push
+        env:
+          WIKI_SECRET: ${{UPDATEWIKISECRETS}}
+        run: |
+          git config user.name "quadhier"
+          git config user.email "quadhier@163.com"
+          git remote remove origin
+          git remote add origin https://$WIKI_SECRET@github.com/quadhier/from.git
+          git remote add upstream https://$WIKI_SECRET@github.com/quadhier/to.wiki.git
+          git fetch origin
+          git fetch upstream
+          git merge upstream/master --no-edit
+          git push origin HEAD:master
+          git push upstream HEAD:master
